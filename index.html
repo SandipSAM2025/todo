@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f4f7f2" />
+    <title>Daymark | Simple todos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="./" aria-label="Daymark home">
+          <span class="brand-mark" aria-hidden="true">✓</span>
+          <span>daymark</span>
+        </a>
+        <span class="storage-note"><span class="status-dot" aria-hidden="true"></span>Stored on this device</span>
+      </header>
+
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow">Your daily list</p>
+        <h1 id="page-title">Make room for<br /><em>what matters.</em></h1>
+        <p class="intro-copy">A quiet place for the things you want to remember.</p>
+      </section>
+
+      <section class="todo-panel" aria-label="Todo list">
+        <form class="add-form" id="add-form">
+          <label class="sr-only" for="todo-input">Add a task</label>
+          <input id="todo-input" name="todo" type="text" placeholder="What needs doing?" maxlength="120" autocomplete="off" />
+          <button class="add-button" type="submit"><span aria-hidden="true">+</span> Add task</button>
+        </form>
+
+        <div class="list-toolbar">
+          <div class="filter-tabs" role="group" aria-label="Filter tasks">
+            <button class="filter-tab is-active" type="button" data-filter="all">All <span class="filter-count" data-count="all">0</span></button>
+            <button class="filter-tab" type="button" data-filter="active">To do <span class="filter-count" data-count="active">0</span></button>
+            <button class="filter-tab" type="button" data-filter="completed">Done <span class="filter-count" data-count="completed">0</span></button>
+          </div>
+          <button class="clear-button" id="clear-completed" type="button">Clear completed</button>
+        </div>
+
+        <ul class="todo-list" id="todo-list" aria-live="polite"></ul>
+        <div class="empty-state" id="empty-state" hidden>
+          <span class="empty-icon" aria-hidden="true">✦</span>
+          <p id="empty-title">Nothing here yet</p>
+          <span id="empty-copy">Add a task above to get started.</span>
+        </div>
+
+        <footer class="list-footer">
+          <span id="remaining-count">0 tasks left</span>
+          <span class="keyboard-hint">Press <kbd>Enter</kbd> to add</span>
+        </footer>
+      </section>
+    </main>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
